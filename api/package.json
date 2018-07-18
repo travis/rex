@@ -7,12 +7,16 @@
     "apollo-server": "^2.0.0-rc.10",
     "apollo-server-express": "^2.0.0-rc.10",
     "express": "^4.16.3",
-    "graphql": "^0.13.2"
+    "graphql": "^0.13.2",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0"
   },
   "scripts": {
     "clean": "rm -rf dst && mkdir dst",
