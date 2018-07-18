@@ -11,10 +11,16 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf dst && mkdir dst",
+    "build": "npx babel src --out-dir dst",
+    "start": "node dst/server.js",
+    "watch": "nodemon src/server.js --exec babel-node",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-tests": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC"
