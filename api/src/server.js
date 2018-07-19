@@ -2,6 +2,7 @@ import express from 'express'
 import { ApolloServer, gql } from 'apollo-server-express'
 import {Claim, User} from './models'
 import { resolver } from 'graphql-sequelize'
+import slugify from 'slugify'
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
@@ -17,6 +18,10 @@ const typeDefs = gql`
   type Query {
     claims: [Claim]
   }
+
+  type Mutation {
+    addClaim(title: String): Claim
+  }
 `;
 
 // Provide resolver functions for your schema fields
@@ -26,6 +31,10 @@ const resolvers = {
       attributes: ['title', 'url']
     })
   },
+  Mutation: {
+    addClaim: (parent, {title}) =>
+      Claim.create({title: title, url: slugify(title)})
+  }
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
