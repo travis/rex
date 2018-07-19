@@ -22,7 +22,8 @@
     "clean": "rm -rf dst && mkdir dst",
     "build": "npx babel src --out-dir dst",
     "start": "node dst/server.js",
-    "watch": "nodemon src/server.js --exec babel-node",
+    "watch": "npm run migrate && nodemon src/server.js --exec babel-node",
+    "migrate":"sequelize db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-tests": "echo \"Error: no test specified\" && exit 1"
   },
