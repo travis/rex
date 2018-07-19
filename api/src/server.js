@@ -16,7 +16,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    claims: [Claim]
+    claims(url: String): [Claim]
   }
 
   type Mutation {
@@ -27,9 +27,7 @@ const typeDefs = gql`
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    claims: () => Claim.findAll({
-      attributes: ['title', 'url']
-    })
+    claims: resolver(Claim)
   },
   Mutation: {
     addClaim: (parent, {title}) =>
