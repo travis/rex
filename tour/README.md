@@ -98,3 +98,8 @@ https://github.com/travis/rex/commit/a87af66e8dddc16e431fe40d00448eeb85e6110d#di
 
 ##### apollo data binding
 https://github.com/travis/rex/commit/a87af66e8dddc16e431fe40d00448eeb85e6110d#diff-4aceb0bd969fd38a713515a5126191a3R1
+
+
+## stack
+![stack](stack.png)
+![stack](stack-docker.png)
