@@ -35,6 +35,15 @@ services:
       - rex-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile-dev
+    image: rex-nginx-dev:latest
+    container_name: rex-nginx-dev
+    env_file: config/.env
+    ports:
+      - 8080:8080
 volumes:
   rex-db:
     driver: local
