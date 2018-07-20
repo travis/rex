@@ -1,0 +1,10 @@
+.Claims ul {
+  list-style-type: none;
+}
+
+.Claims ul li {
+  height: 2em;
+  border: 1px solid;
+  margin-bottom: 1em;
+  padding-top: 1em;
+}
