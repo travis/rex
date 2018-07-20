@@ -14,7 +14,7 @@ export default (sequelize, DataTypes) => {
     imageDescription: DataTypes.TEXT
   }, {tableName: 'claims'});
   Claim.associate = function(models) {
-    Claim.belongsTo(models.User, {as: 'author'})
+    Claim.belongsTo(models.User, {as: 'author', foreignKey: 'authorId'})
   };
   return Claim;
 };
