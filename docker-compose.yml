@@ -9,6 +9,15 @@ services:
       - NODE_ENV=production
     ports:
       - 8088:8088
+  ui:
+    build: ./ui
+    image: rex-ui:latest
+    container_name: rex-ui
+    env_file: config/.env
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 5000:5000
   db:
     build: ./db
     image: rex-db:latest

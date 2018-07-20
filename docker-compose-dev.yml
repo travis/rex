@@ -13,6 +13,19 @@ services:
       - ./api:/www
     ports:
       - 8088:8088
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile-dev
+    image: rex-uid-dev:latest
+    container_name: rex-ui-dev
+    env_file: config/.env
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./ui:/www
+    ports:
+      - 3000:3000
   db:
     build: ./db
     image: rex-db-dev:latest
