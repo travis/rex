@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Claims from './Claims'
-import Users from './Users'
-import User from './User'
+import Claims from './components/Claims'
+import Users from './components/Users'
+import User from './components/User'
 
 class App extends Component {
   render() {
