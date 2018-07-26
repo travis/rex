@@ -6,6 +6,13 @@ import slugify from 'slugify'
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
+  type User {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+  }
+
   type Claim {
     id: ID
     url: String
@@ -13,25 +20,35 @@ const typeDefs = gql`
     authorName: String
     authorURL: String
     dateEdited: String
+    authorId: ID
   }
 
   type Query {
     claims(url: String): [Claim]
+    users: [User]
+    user(id: ID): User
+    claimsForUser(id: ID): [Claim]
   }
 
   type Mutation {
-    addClaim(title: String): Claim
+    addClaim(title: String, authorId: ID): Claim
+    addUser(email: String, firstName: String, lastName: String): User
   }
 `;
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    claims: resolver(Claim)
+    claims: resolver(Claim),
+    users: resolver(User),
+    user: (_, {id}) => User.findOne({where: {id: id}}),
+    claimsForUser: (_, {id}) => Claim.findAll({where: {authorId: id}})
   },
   Mutation: {
-    addClaim: (parent, {title}) =>
-      Claim.create({title: title, url: slugify(title)})
+    addClaim: (parent, {title, authorId}) =>
+      Claim.create({title: title, url: slugify(title), authorId: authorId}),
+    addUser: (parent, attributes) =>
+      User.create(attributes)
   }
 };
 

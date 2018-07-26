@@ -4,9 +4,9 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 
-class Claims extends Component {
+export class ClaimsComponent extends Component {
   render() {
-    const { claims } = this.props.data
+    const { claims } = this.props
     return (
         <div className="Claims">
           <ul>
@@ -28,4 +28,6 @@ export default graphql(gql`
       title
     }
   }
-`)(Claims);
+`,
+                       {props: ({data: {claims}}) => ({claims: claims})}
+                      )(ClaimsComponent);
