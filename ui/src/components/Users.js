@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './Users.css';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 
-
-class Users extends Component {
+export default class Users extends Component {
   render() {
-    const { users } = this.props.data
+    const { users } = this.props
     return (
         <div className="Users">
           <ul>
@@ -21,15 +18,3 @@ class Users extends Component {
     );
   }
 }
-
-
-export default graphql(gql`
-  query Users {
-    users {
-      id
-      email
-      firstName
-      lastName
-    }
-  }
-`)(Users);

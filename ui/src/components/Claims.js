@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './Claims.css';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 
-
-export class ClaimsComponent extends Component {
+export default class Claims extends Component {
   render() {
     const { claims } = this.props
     return (
@@ -18,16 +15,3 @@ export class ClaimsComponent extends Component {
     );
   }
 }
-
-
-export default graphql(gql`
-  query Claims {
-    claims {
-      id
-      url
-      title
-    }
-  }
-`,
-                       {props: ({data: {claims}}) => ({claims: claims})}
-                      )(ClaimsComponent);
