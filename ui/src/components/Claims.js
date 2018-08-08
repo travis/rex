@@ -7,8 +7,8 @@ export default class Claims extends Component {
     return (
         <div className="Claims">
           <ul>
-        {claims && claims.map(({id, title, url}) => (
-            <li key={id}><a href={"/" + url}>{title}</a></li>
+        {claims && claims.map(({id, title, slug}) => (
+            <li key={id}><a href={"/" + slug}>{title}</a></li>
         ))}
           </ul>
         </div>

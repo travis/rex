@@ -28,13 +28,13 @@ afterAll(() => {
 })
 
 test('addClaim creates a unit', async () => {
-  await expect(queryResult('mutation AddClaim($title: String!, $authorId: ID) {addClaim(title: $title, authorId: $authorId) {url, title}}', {title: "Foo"})).resolves.toEqual(
-    {data: {addClaim: {title: "Foo", url: "foo"}}}
+  await expect(queryResult('mutation AddClaim($title: String!, $authorID: ID) {addClaim(title: $title, authorID: $authorID) {slug, title}}', {title: "Foo"})).resolves.toEqual(
+    {data: {addClaim: {title: "Foo", slug: "foo"}}}
   );
 });
 
 test('claims returns claims', async () => {
-  await expect(queryResult('{claims { title, url }}')).resolves.toEqual(
-    {data: {claims: [{title: "Bar", url: "bar"}]}}
+  await expect(queryResult('{claims { title, slug }}')).resolves.toEqual(
+    {data: {claims: [{title: "Bar", slug: "bar"}]}}
   );
 });

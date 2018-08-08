@@ -9,21 +9,21 @@ export default (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV1,
       type: DataTypes.UUID
     },
-    url: DataTypes.TEXT,
+    slug: DataTypes.TEXT,
     title: {
       type: DataTypes.TEXT,
       set(val) {
         this.setDataValue('title', val)
-        if (!this.getDataValue('url')) {
-          this.setDataValue('url', slugify(val, {lower: true}))
+        if (!this.getDataValue('slug')) {
+          this.setDataValue('slug', slugify(val, {lower: true}))
         }
       }
     },
-    imageUrl: DataTypes.TEXT,
+    imageURL: DataTypes.TEXT,
     imageDescription: DataTypes.TEXT
   }, {tableName: 'claims'});
   Claim.associate = function(models) {
-    Claim.belongsTo(models.User, {as: 'author', foreignKey: 'authorId'})
+    Claim.belongsTo(models.User, {as: 'author', foreignKey: 'authorID'})
   };
   return Claim;
 };

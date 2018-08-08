@@ -10,23 +10,23 @@ export default gql`
 
   type Claim {
     id: ID
-    url: String
+    slug: String
     title: String
     authorName: String
     authorURL: String
     dateEdited: String
-    authorId: ID
+    authorID: ID
   }
 
   type Query {
-    claims(url: String): [Claim]
+    claims(slug: String): [Claim]
     users: [User]
     user(id: ID): User
     claimsForUser(id: ID): [Claim]
   }
 
   type Mutation {
-    addClaim(title: String, authorId: ID): Claim
+    addClaim(title: String, authorID: ID): Claim
     addUser(email: String, firstName: String, lastName: String): User
   }
 `

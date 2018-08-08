@@ -23,11 +23,11 @@ storiesOf('Button', module)
   ));
 
 storiesOf('Claims', module)
-  .add('with claims', () => <Claims claims={[{id: 1, title: "Ducks are cool", url: "/ducks_are_cool"}, {id: 2, title: "Geese are neat", url: "/geese_are_neat"}]}>
+  .add('with claims', () => <Claims claims={[{id: 1, title: "Ducks are cool", slug: "ducks_are_cool"}, {id: 2, title: "Geese are neat", slug: "geese_are_neat"}]}>
   </Claims>)
 
 storiesOf('User', module)
-  .add('with claims', () => <User claims={[{id: 1, title: "Ducks are cool", url: "/ducks_are_cool"}, {id: 2, title: "Geese are neat", url: "/geese_are_neat"}]}>
+  .add('with claims', () => <User claims={[{id: 1, title: "Ducks are cool", slug: "/ducks_are_cool"}, {id: 2, title: "Geese are neat", slug: "/geese_are_neat"}]}>
        </User>)
 
 storiesOf('Users', module)

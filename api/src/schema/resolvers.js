@@ -7,11 +7,11 @@ export default {
     claims: resolver(Claim),
     users: resolver(User),
     user: (_, {id}) => User.findOne({where: {id: id}}),
-    claimsForUser: (_, {id}) => Claim.findAll({where: {authorId: id}})
+    claimsForUser: (_, {id}) => Claim.findAll({where: {authorID: id}})
   },
   Mutation: {
-    addClaim: (parent, {title, authorId}) =>
-      Claim.create({title: title, authorId: authorId}),
+    addClaim: (parent, {title, authorID}) =>
+      Claim.create({title: title, authorID: authorID}),
     addUser: (parent, attributes) =>
       User.create(attributes)
   }
