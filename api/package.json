@@ -29,7 +29,10 @@
     "watch": "npm run db:migrate && nodemon src/server.js --exec babel-node",
     "db:migrate": "sequelize db:migrate",
     "test": "jest",
-    "watch:test": "jest --watch"
+    "watch:test": "jest --watch",
+    "build-docker-test-env": "docker build --tag rex/api-test --file ./Dockerfile-test ./",
+    "docker-test": "docker-compose -f docker-compose-test.yml run api npx jest",
+    "watch:docker-test": "docker-compose -f docker-compose-test.yml run api npx jest --watchAll"
   },
   "author": "",
   "license": "ISC"
