@@ -11,7 +11,7 @@ export default (sequelize, DataTypes) => {
     email: DataTypes.TEXT
   }, {tableName: 'users'});
   User.associate = function(models) {
-    User.hasMany(models.Claim, {foreignKey: 'authorId'})
+    User.hasMany(models.Claim, {foreignKey: 'authorID'})
   };
   return User;
 };

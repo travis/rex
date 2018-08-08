@@ -4,7 +4,7 @@ export const Claims = gql`
   query Claims {
     claims {
       id
-      url
+      slug
       title
     }
   }
@@ -14,7 +14,7 @@ export const UserClaims = gql`
   query UserClaims($id: ID!) {
     claimsForUser(id: $id) {
       id
-      url
+      slug
       title
     }
   }

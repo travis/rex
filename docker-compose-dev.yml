@@ -4,6 +4,8 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile-dev
+    depends_on:
+      - db
     image: rex-api-dev:latest
     container_name: rex-api-dev
     env_file: config/.env

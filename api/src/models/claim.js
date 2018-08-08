@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize'
+import slugify from 'slugify'
 
 export default (sequelize, DataTypes) => {
   var Claim = sequelize.define('Claim', {
@@ -8,13 +9,21 @@ export default (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV1,
       type: DataTypes.UUID
     },
-    url: DataTypes.TEXT,
-    title: DataTypes.TEXT,
-    imageUrl: DataTypes.TEXT,
+    slug: DataTypes.TEXT,
+    title: {
+      type: DataTypes.TEXT,
+      set(val) {
+        this.setDataValue('title', val)
+        if (!this.getDataValue('slug')) {
+          this.setDataValue('slug', slugify(val, {lower: true}))
+        }
+      }
+    },
+    imageURL: DataTypes.TEXT,
     imageDescription: DataTypes.TEXT
   }, {tableName: 'claims'});
   Claim.associate = function(models) {
-    Claim.belongsTo(models.User, {as: 'author', foreignKey: 'authorId'})
+    Claim.belongsTo(models.User, {as: 'author', foreignKey: 'authorID'})
   };
   return Claim;
 };
