@@ -17,6 +17,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "command-line-args": "^5.0.2",
     "jest": "^23.4.2",
     "nodemon": "^1.18.3",
     "sequelize": "^4.38.0",
@@ -28,6 +29,8 @@
     "start": "node dst/server.js",
     "watch": "npm run db:migrate && nodemon src/server.js --exec babel-node",
     "db:migrate": "sequelize db:migrate",
+    "db:sync": "babel-node src/scripts/sync_db.js",
+    "db:sync-force": "babel-node src/scripts/sync_db.js --force",
     "test": "jest",
     "watch:test": "jest --watch",
     "build-docker-test-env": "docker build --tag rex/api-test --file ./Dockerfile-test ./",
