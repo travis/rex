@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "rex is a Really EXcellent way to build webapps",
   "scripts": {
+    "test": "cd ui && npm test && cd ../api && npm run docker-test",
     "start": "docker-compose -f docker-compose-dev.yml up",
+    "storybook": "cd ui && npm run storybook",
     "watch:api-tests": "cd api && npm run watch:docker-test",
     "db:sync": "docker-compose -f docker-compose-dev.yml run api npm run db:sync",
     "db:sync-force": "docker-compose -f docker-compose-dev.yml run api npm run db:sync-force"
