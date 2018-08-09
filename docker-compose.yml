@@ -1,7 +1,9 @@
 version: '3'
 services:
   api:
-    build: ./api
+    build:
+      context: ./
+      dockerfile: Dockerfile-api
     image: rex-api:latest
     container_name: rex-api
     env_file: config/.env
@@ -10,7 +12,9 @@ services:
     ports:
       - 8088:8088
   ui:
-    build: ./ui
+    build:
+      context: ./
+      dockerfile: Dockerfile-ui
     image: rex-ui:latest
     container_name: rex-ui
     env_file: config/.env

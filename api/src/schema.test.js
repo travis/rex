@@ -1,6 +1,6 @@
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
 import { graphql } from 'graphql';
-import typeDefs from './schema/typeDefs'
+import typeDefs from 'rex-schema'
 import resolvers from './schema/resolvers'
 
 import { Claim, sequelize } from './models'

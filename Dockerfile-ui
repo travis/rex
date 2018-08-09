@@ -1,0 +1,16 @@
+FROM mhart/alpine-node:9
+
+RUN mkdir /app
+
+ADD ./schema /app/schema
+ADD ./ui /app/ui
+
+WORKDIR /app/schema
+RUN npm install
+
+WORKDIR /app/ui
+RUN npm install && npm run build
+
+RUN npm install -g serve
+
+CMD serve -s build

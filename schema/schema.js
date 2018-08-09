@@ -1,6 +1,5 @@
-import { gql } from 'apollo-server-express'
-
-export default gql`
+'use strict';
+module.exports = require('graphql-tag')`
   type User {
     id: ID
     email: String
@@ -29,4 +28,4 @@ export default gql`
     addClaim(title: String, authorID: ID): Claim
     addUser(email: String, firstName: String, lastName: String): User
   }
-`
+`;
