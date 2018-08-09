@@ -4,7 +4,7 @@ import {Claim, User} from './models'
 import { resolver } from 'graphql-sequelize'
 import slugify from 'slugify'
 
-import typeDefs from './schema/typeDefs'
+import typeDefs from 'rex-schema'
 import resolvers from './schema/resolvers'
 
 const server = new ApolloServer({ typeDefs, resolvers });

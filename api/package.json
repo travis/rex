@@ -12,6 +12,7 @@
     "graphql-sequelize": "^9.0.1",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
+    "rex-schema": "file:../schema",
     "slugify": "^1.3.0"
   },
   "devDependencies": {
