@@ -46,6 +46,14 @@ exports[`Storyshots Claims with claims 1`] = `
 </div>
 `;
 
+exports[`Storyshots ClaimsPage with claims 1`] = `
+<div
+  className="Claims"
+>
+  <ul />
+</div>
+`;
+
 exports[`Storyshots User with claims 1`] = `
 <div
   className="User"
@@ -56,14 +64,14 @@ exports[`Storyshots User with claims 1`] = `
     <ul>
       <li>
         <a
-          href="//ducks_are_cool"
+          href="/ducks_are_cool"
         >
           Ducks are cool
         </a>
       </li>
       <li>
         <a
-          href="//geese_are_neat"
+          href="/geese_are_neat"
         >
           Geese are neat
         </a>

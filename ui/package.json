@@ -10,7 +10,8 @@
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "rex-schema": "file:../schema"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,8 +28,11 @@
     "@storybook/addon-storyshots": "^3.4.10",
     "@storybook/addons": "^3.4.8",
     "@storybook/react": "^3.4.8",
+    "apollo-storybook-react": "^0.1.5",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
-    "react-test-renderer": "^16.4.2"
+    "graphql-tools": "^3.1.1",
+    "react-test-renderer": "^16.4.2",
+    "storybook-react-router": "^1.0.1"
   }
 }
