@@ -45,7 +45,7 @@ in the `ui` project will be automatically reloaded.
 ## work on the API
 
 ```
-npm run watch:api-tests
+npm run docker:api:watch:test
 ```
 
 This will run the `api` project tests and then automatically re-run
