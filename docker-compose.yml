@@ -1,40 +1,50 @@
-version: '3'
+version: '3.6'
 services:
   api:
-    build:
-      context: ./
-      dockerfile: Dockerfile-api
-    image: rex-api:latest
-    container_name: rex-api
+    build: ./
+    command: npm run api:start
+    depends_on:
+      - db
+    image: rex-api-dev:latest
+    container_name: rex-api-dev
     env_file: config/.env
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
+    volumes:
+      - .:/app
     ports:
       - 8088:8088
   ui:
-    build:
-      context: ./
-      dockerfile: Dockerfile-ui
-    image: rex-ui:latest
-    container_name: rex-ui
+    build: ./
+    command: npm run ui:start
+    image: rex-uid-dev:latest
+    container_name: rex-ui-dev
     env_file: config/.env
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
+    volumes:
+      - .:/app
     ports:
-      - 5000:5000
+      - 3000:3000
   db:
     build: ./db
-    image: rex-db:latest
-    container_name: rex-db
+    image: rex-db-dev:latest
+    container_name: rex-db-dev
     env_file: config/.env
     volumes:
       - rex-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
   nginx:
-    build: ./nginx
-    image: rex-nginx:latest
-    container_name: rex-nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile-dev
+    image: rex-nginx-dev:latest
+    container_name: rex-nginx-dev
+    depends_on:
+      - ui
+      - api
+    env_file: config/.env
     ports:
       - 8080:8080
 volumes:

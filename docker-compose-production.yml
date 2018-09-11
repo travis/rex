@@ -1,0 +1,42 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile-api
+    image: rex-api:latest
+    container_name: rex-api
+    env_file: config/.env
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 8088:8088
+  ui:
+    build:
+      context: ./
+      dockerfile: Dockerfile-ui
+    image: rex-ui:latest
+    container_name: rex-ui
+    env_file: config/.env
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 5000:5000
+  db:
+    build: ./db
+    image: rex-db:latest
+    container_name: rex-db
+    env_file: config/.env
+    volumes:
+      - rex-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  nginx:
+    build: ./nginx
+    image: rex-nginx:latest
+    container_name: rex-nginx
+    ports:
+      - 8080:8080
+volumes:
+  rex-db:
+    driver: local
