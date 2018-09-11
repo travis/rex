@@ -27,16 +27,19 @@
   "scripts": {
     "clean": "rm -rf dst && mkdir dst",
     "build": "npx babel src --out-dir dst",
-    "start": "node dst/server.js",
-    "watch": "npm run db:migrate && nodemon src/server.js --exec babel-node",
+    "start:built": "node dst/server.js",
+    "start": "npm run db:migrate && nodemon src/server.js --exec babel-node",
     "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all",
+    "db:seed:undo": "sequelize db:seed:undo",
+    "db:seed:undo:all": "sequelize db:seed:undo:all",
     "db:sync": "babel-node src/scripts/sync_db.js",
-    "db:sync-force": "babel-node src/scripts/sync_db.js --force",
+    "db:sync:force": "babel-node src/scripts/sync_db.js --force",
+    "db:reset": "npm run db:seed:undo:all && npm run db:sync-force && npm run db:seed:all",
+    "db:repl": "psql -p 5432 -h localhost -U postgres",
     "test": "jest",
-    "watch:test": "jest --watch",
-    "build-docker-test-env": "docker build --tag rex/api-test --file ./Dockerfile-test ./",
-    "docker-test": "docker-compose -f docker-compose-test.yml run api npx jest",
-    "watch:docker-test": "docker-compose -f docker-compose-test.yml run api npx jest --watchAll"
+    "watch:test": "jest --watchAll",
+    "repl": "cd src && babel-node"
   },
   "author": "",
   "license": "ISC"
