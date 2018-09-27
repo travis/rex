@@ -76,4 +76,4 @@ thing to review and update the PR!
 
 ## Docker incorrect credentials error
 
-This sometimes occurs when first running the stack. To fix this, try signing out of your Docker desktop account.
+This error sometimes occurs when first running the stack. To fix this, try signing out of your Docker desktop account.
