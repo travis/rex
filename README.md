@@ -9,7 +9,7 @@ First, (install Docker)[https://docs.docker.com/install/].
 Next, run
 
 ```
-npm run docker:db:sync:force
+npm run db:sync-force
 npm start
 ```
 
@@ -69,11 +69,3 @@ npm db:sync-force
 Add a new section with the thing you'd like to be able to do and TODO:
 in the body. Submit a PR. Ask someone who might know how to do the
 thing to review and update the PR!
-
-
-
-# Common issues
-
-## Docker incorrect credentials error
-
-This sometimes occurs when first running the stack. To fix this, try signing out of your Docker desktop account.
