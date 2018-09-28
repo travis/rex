@@ -13,9 +13,7 @@ $ npm run docker:db:sync:force
 $ npm start
 ```
 
-To get a development environment. The first time you run these
-commands we'll build a bunch of docker images and do a bunch of
-initialization - please be patient.
+To get a development environment. The first time you run these commands we'll build a bunch of docker images and do a bunch of initialization - please be patient.
 
 Visit [http://localhost:8080](http://localhost:8080) to see your running app.
 
@@ -28,9 +26,7 @@ $ npm run docker:db:sync:force # you only need this the first time you run the a
 $ npm start
 ```
 
-This will spin the whole system up in docker containers. Code changes
-in either the `api` or `ui` projects will be automatically reloaded
-(though there is usually at least a short delay).
+This will spin the whole system up in docker containers. Code changes in either the `api` or `ui` projects will be automatically reloaded (though there is usually at least a short delay).
 
 ### The frontend
 
@@ -44,9 +40,7 @@ or for mobile
 $ npm run storybook:mobile
 ```
 
-This will spin up `storybook` on your machine (without Docker). Watch
-the console for instructions on accessing the Story Book. Code changes
-in the `ui` project will be automatically reloaded.
+This will spin up `storybook` on your machine (without Docker). Watch the console for instructions on accessing the Story Book. Code changes in the `ui` project will be automatically reloaded.
 
 ### The API
 
@@ -54,11 +48,9 @@ in the `ui` project will be automatically reloaded.
 $ npm run docker:api:watch:test
 ```
 
-This will run the `api` project tests and then automatically re-run
-them when code in the `api` project changes. API development should be
-primarily test-driven.
+This will run the `api` project tests and then automatically re-run them when code in the `api` project changes. API development should be primarily test-driven.
 
-Running all the tests at once
+### Running all the tests at once
 
 ```bash
 $ npm run test
@@ -72,11 +64,7 @@ $ npm run docker:db:sync-force
 
 ### Doing something that isn't documented here
 
-Add a new section with the thing you'd like to be able to do and TODO:
-in the body. Submit a PR. Ask someone who might know how to do the
-thing to review and update the PR!
-
-
+Add a new section with the thing you'd like to be able to do and TODO: in the body. Submit a PR. Ask someone who might know how to do the thing to review and update the PR!
 
 ## Common issues
 
@@ -86,8 +74,4 @@ This error sometimes occurs when first running the stack. To fix this, try signi
 
 ### Drive isn't shared
 
-If your computer is running multiple drives, you'll probably run into this error.
-
-There's a section in the Docker desktop settings called Shared Drives. Go there
-
-and select the drive that your project is located in and click Apply.
+If your computer is running multiple drives, you'll probably run into this error. There's a section in the Docker desktop settings called "Shared Drives". Go there and select the drive that your project is located in and click "Apply".
