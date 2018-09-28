@@ -75,3 +75,33 @@ This error sometimes occurs when first running the stack. To fix this, try signi
 ### Drive isn't shared
 
 If your computer is running multiple drives, you'll probably run into this error. There's a section in the Docker desktop settings called "Shared Drives". Go there and select the drive that your project is located in and click "Apply".
+
+### Expo can't connect to LAN network (React-Native)
+
+This issue is caused by Docker creating it's own network on your computer. To fix this, you need to tell Expo to use your network's IPv4 address and not Docker's.
+
+#### Windows solution:
+
+One solution is to manually set Expo's packager hostname environmental variable to the correct IP address.
+
+To find the correct IP run
+
+```bash
+$ ipconfig
+```
+
+and look for the address labeled "IPv4 Address."
+
+If there are multiple, try each until you find the correct one.
+
+Next, run
+
+```bash
+$ set EXPO_PACKAGER_HOSTNAME=YOUR_ADDRESS_HERE
+```
+
+This needs to be run every time you reset your terminal. If you know of a permanent solution or a better way of fixing this, please update this section and send a pull request.
+
+#### Mac solution:
+
+Currently unknown. If you know how to do this, please update this section and send a pull request.
