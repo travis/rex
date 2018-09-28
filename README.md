@@ -4,7 +4,7 @@ REX is a Really EXcellent way to develop web-apps.
 
 ## Quick start
 
-First, (install Docker)[https://docs.docker.com/install/].
+First, [install Docker](https://docs.docker.com/install/).
 
 Next, run
 
