@@ -1,3 +1,4 @@
+import dotenv from './dotenv'
 import express from 'express'
 import { ApolloServer, gql } from 'apollo-server-express'
 import {Claim, User} from './models'

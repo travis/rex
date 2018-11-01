@@ -1,3 +1,4 @@
+import dotenv from '../etc/dotenv'
 import commandLineArgs from 'command-line-args'
 import db from '../models'
 
