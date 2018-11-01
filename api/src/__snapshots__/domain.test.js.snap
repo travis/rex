@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user registration a new user can be created 1`] = `
+Object {
+  "createdAt": Any<Date>,
+  "email": "travis@rexit.com",
+  "id": Any<String>,
+  "password": Anything,
+  "updatedAt": Any<Date>,
+  "username": "travis",
+}
+`;

@@ -8,11 +8,11 @@ module.exports = {
         defaultValue: DataTypes.UUIDV1,
         type: DataTypes.UUID
       },
-      firstName: {
+      username: {
         type: DataTypes.TEXT
       },
-      lastName: {
-        type: DataTypes.TEXT
+      password: {
+        type: DataTypes.BLOB
       },
       email: {
         type: DataTypes.TEXT
