@@ -42,5 +42,39 @@ export default (sequelize, DataTypes) => {
     }
   })
 
+  User.prototype.verifyPassword = function(password) {
+    const self = this
+    return new Promise((resolve, reject) => {
+      const bufferedPassword = Buffer.from(password)
+      pwd.verify(bufferedPassword, self.password, (err, code) => {
+        if (err) {
+          reject(err)
+        } else {
+          switch (code) {
+          case securePassword.INVALID_UNRECOGNIZED_HASH:
+            resolve(false)
+          case securePassword.INVALID:
+            resolve(false)
+          case securePassword.VALID:
+            resolve(true)
+          case securePassword.VALID_NEEDS_REHASH:
+            console.log('Yay you made it, wait for us to improve your safety')
+            pwd.hash(bufferedPassword, function (err, improvedHash) {
+              if (err) {
+                console.error('You are authenticated, but we could not improve your safety this time around', err)
+                resolve(true)
+              } else {
+                self.update({password: improvedHash}).
+                  then(() => resolve(true),
+                       (err) => reject(err))
+              }
+            })
+            break
+          }
+        }
+      })
+    })
+  }
+
   return User;
 };

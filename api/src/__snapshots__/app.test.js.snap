@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login with current-user endpoint it returns the user when logged in 1`] = `
+Object {
+  "exp": Any<Number>,
+  "iat": Any<Number>,
+  "id": Any<String>,
+}
+`;
