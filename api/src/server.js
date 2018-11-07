@@ -1,4 +1,4 @@
-import dotenv from './dotenv'
+import dotenv from './etc/dotenv'
 import app, {apolloServer} from './app'
 
 const {
