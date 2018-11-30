@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import StoryRouter from 'storybook-react-router';
-import apolloStorybookDecorator from 'apollo-storybook-react';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -13,7 +12,6 @@ import typeDefs from 'rex-schema'
 import Claims from '../components/Claims'
 import User from '../components/User'
 import Users from '../components/Users'
-import ClaimsPage from '../bindings/ClaimsPage'
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -43,14 +41,3 @@ storiesOf('User', module)
 storiesOf('Users', module)
   .add('with users', () => <Users users={[user1]} >
        </Users>)
-
-const withMocks = (mocks) => apolloStorybookDecorator({ typeDefs, mocks})
-
-storiesOf('ClaimsPage', module)
-  .addDecorator(StoryRouter())
-  .addDecorator(withMocks({
-    Query: () => ({
-      claims: () => [claim1, claim2]
-    })
-  }))
-  .add('with claims', () => <ClaimsPage />)
