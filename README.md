@@ -2,6 +2,8 @@
 
 rex is a Really EXcellent way to develop webapps.
 
+[![CircleCI](https://circleci.com/gh/travis/rex.svg?style=svg)](https://circleci.com/gh/travis/rex)
+
 # Quickstart
 
 First, (install Docker)[https://docs.docker.com/install/].
