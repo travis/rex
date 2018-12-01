@@ -18,18 +18,20 @@ jobs:
       - checkout
 
       # Download and cache dependencies
-      - restore_cache:
+      - restore_cache: # special step to restore the dependency cache
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "ui/package.json" }}-{{ checksum "api/package.json" }}-{{ checksum "schema/package.json" }}
+            - v1-dependencies-
 
       - run: npm install
 
-      - save_cache:
+      - save_cache: # special step to save the dependency cache
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ./node_modules
+            - ./ui/node_modules
+            - ./api/node_modules
+            - ./schema/node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "ui/package.json" }}-{{ checksum "api/package.json" }}-{{ checksum "schema/package.json" }}
       # run tests!
       - run: npm run ui:test
       - run: npm run api:test
