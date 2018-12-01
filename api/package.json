@@ -45,8 +45,8 @@
     "db:sync:force": "babel-node src/scripts/sync_db.js --force",
     "db:reset": "npm run db:seed:undo:all && npm run db:sync-force && npm run db:seed:all",
     "db:repl": "psql -p 5432 -h localhost -U postgres",
-    "test": "jest",
-    "watch:test": "jest --watchAll",
+    "test": "jest --runInBand",
+    "watch:test": "jest --watchAll --runInBand",
     "repl": "cd src && babel-node"
   },
   "author": "",
